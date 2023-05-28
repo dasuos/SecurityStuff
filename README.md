@@ -5,7 +5,7 @@ Demonstration of security-related scripts using Python and C
 **arp_spoofing_attack.py**
 - Example of ARP spoofing attack (for installing Scapy, use <code>pip3 install --pre scapy[basic]</code>)
 
-**arp_spoofing_attack.py**
+**arp_spoofing_detection.py**
 - Script demonstrating ARP spoofing detection by mapping MAC and IP addresses (for installing Scapy, use <code>pip3 install --pre scapy[basic]</code>)
 
 ## Reverse shell - reverse_shell
