@@ -7,7 +7,6 @@ from socket import (
     SHUT_RDWR
 )
 
-
 server_port = 8000
 
 server_socket = socket(AF_INET, SOCK_STREAM)
