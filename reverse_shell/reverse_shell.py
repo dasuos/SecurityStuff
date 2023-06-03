@@ -1,6 +1,10 @@
 import sys
 from subprocess import Popen, PIPE
-from socket import *
+from socket import (
+    socket,
+    AF_INET,
+    SOCK_STREAM
+)
 
 server_name = sys.argv[1]
 server_port = 8000

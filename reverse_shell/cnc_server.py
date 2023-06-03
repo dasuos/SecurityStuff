@@ -1,4 +1,12 @@
-from socket import *
+from socket import (
+    socket,
+    AF_INET,
+    SOCK_STREAM,
+    SOL_SOCKET,
+    SO_REUSEADDR,
+    SHUT_RDWR
+)
+
 
 server_port = 8000
 
@@ -11,17 +19,16 @@ print('Listening for connections')
 
 connection_socket, address = server_socket.accept()
 
-print('Connecting ' + str(address))
+print('Connecting {:s}'.format(str(address)))
 
 message = connection_socket.recv(1024)
 print(message)
 
 command = ''
 while command != 'exit':
-    command = input('Enter a command:')
+    command = input('Enter a command: ')
     connection_socket.send(command.encode())
-    message = connection_socket.recv(1024).decode()
-    print(message)
+    print(connection_socket.recv(1024).decode())
 
 connection_socket.shutdown(SHUT_RDWR)
 connection_socket.close()

