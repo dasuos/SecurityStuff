@@ -14,3 +14,9 @@ Demonstration of security-related scripts using Python and C
 
 **cnc_server.py**
 - CNC server accepting client connections, sending commands, and displaying output
+
+## Ransomware - ransomware
+**ransomware.py**
+- Demonstration of simple ransomware recursively iterating through a directory encrypting all files with a symmetric key, which is after encrypted with public key
+- For generating RSA public key, use for example: <code>openssl genrsa -out rsa_pair.key 4096</code> and <code>openssl rsa -in rsa_pair.key -pubout -out rsa_public.key</code>
+- Use at your own risk
