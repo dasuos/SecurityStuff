@@ -31,5 +31,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0) as socket_instance:
         print('Connection from {:s} established'.format(address[0]))
 
         while (client_message := connection.recv(1024).decode()) != '':
-            print("Message sent by the client: '{:s}'".format(client_message))
             connection.send('The message has been received'.encode())
+
+            print("Message sent by the client: '{:s}'".format(client_message))
