@@ -23,9 +23,7 @@ print('Connecting {:s}'.format(str(address)))
 message = connection_socket.recv(1024)
 print(message)
 
-command = ''
-while command != 'exit':
-    command = input('Enter a command: ')
+while (command := input('Enter a command: ')) != 'exit':
     connection_socket.send(command.encode())
     print(connection_socket.recv(1024).decode())
 
