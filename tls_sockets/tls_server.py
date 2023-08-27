@@ -5,7 +5,7 @@ server_key = 'server.key'
 server_certificate = 'server.crt'
 client_certificate = 'client.crt'
 
-port = 8080
+port = 443
 
 context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
 context.verify_mode = ssl.CERT_REQUIRED

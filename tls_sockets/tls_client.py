@@ -5,7 +5,7 @@ client_key = 'client.key'
 client_certificate = 'client.crt'
 server_certificate = 'server.crt'
 
-port = 8080
+port = 443
 hostname = '127.0.0.1'
 
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT, cafile=server_certificate)
