@@ -30,6 +30,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM, 0) as socket_instance:
         connection, address = wrapped_socket_instance.accept()
         print('Connection from {:s} established'.format(address[0]))
 
-        while True:
-            message = connection.recv(1024).decode()
-            connection.send("Message '{:s}' received".format(message).encode())
+        while (client_message := connection.recv(1024).decode()) != '':
+            print("Message sent by the client: '{:s}'".format(client_message))
+            connection.send('The message has been received'.encode())

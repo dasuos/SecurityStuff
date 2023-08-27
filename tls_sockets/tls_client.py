@@ -29,5 +29,5 @@ with socket.create_connection((hostname, port)) as socket_instance:
         while (message := input('Enter the message: ')) != 'exit':
             wrapped_socket_instance.send(message.encode())
 
-            received_message = wrapped_socket_instance.recv(1024).decode()
-            print('Server response: {:s}'.format(received_message))
+            server_response = wrapped_socket_instance.recv(1024).decode()
+            print('Server response: {:s}'.format(server_response))
