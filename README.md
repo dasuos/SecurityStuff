@@ -11,9 +11,11 @@ Demonstration of security-related scripts using Python and C
 ## Reverse shell - reverse_shell
 **reverse_shell.py**
 - Reverse shell connecting to CNC server, receiving, and executing commands
+- To extend the reverse shell with secure connection, see [TLS sockets](#tls-sockets---tlssockets)
 
 **cnc_server.py**
 - CNC server accepting client connections, sending commands, and displaying output
+- To extend the CNC server with secure connection, see [TLS sockets](#tls-sockets---tlssockets)
 
 ## Ransomware - ransomware
 **ransomware.py**
@@ -23,3 +25,14 @@ Demonstration of security-related scripts using Python and C
 
 **decryption.py**
 - The decryption of symmetric key with private key, which is after that used to recursively decrypt all files in a directory
+
+## TLS sockets - tls_sockets
+- Demonstration of TLS sockets using elliptic-curve Diffie-Hellman key exchange
+- Generate the server's private key and certificate by running: <code>openssl req -new -newkey rsa:3072 -days 365 -nodes -x509 -keyout server.key -out server.crt</code>
+- Generate the client’s private key and certificate by running: <code>openssl req -new -newkey rsa:3072 -days 365 -nodes -x509 -keyout client.key -out client.crt</code>
+
+**tls_client.py**
+- The client socket that establishes a secure connection to the server and sends the message from the input
+
+**tls_server.py**
+- The server socket that accepts a secure connection and receives the message from the client
