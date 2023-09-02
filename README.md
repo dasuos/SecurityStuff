@@ -37,6 +37,9 @@ Demonstration of security-related scripts using Python and C
 **tls_server.py**
 - The server socket that accepts a secure connection and receives the message from the client
 
-## Email spoofer - email_spoofer
-**smtp_email_spoofer.py**
-- SMTP email spoofer sending a fake email over an unencrypted channel
+## E-mail - email
+**smtp_email.py**
+- Sending an email over an unencrypted channel using SMTP
+
+**smtps_email.py**
+- Sending an email over an encrypted channel using SMTPS
