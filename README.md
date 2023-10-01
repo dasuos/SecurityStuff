@@ -11,11 +11,11 @@ Demonstration of security-related scripts with an educational purpose using Pyth
 ## Reverse shell - reverse_shell
 **reverse_shell.py**
 - Reverse shell connecting to CNC server, receiving, and executing commands
-- To extend the reverse shell with secure connection, see [TLS sockets](#tls-sockets---tls_sockets)
+- To extend the reverse shell with a secure connection, see [TLS sockets](#tls-sockets---tls_sockets)
 
 **cnc_server.py**
 - CNC server accepting client connections, sending commands, and displaying output
-- To extend the CNC server with secure connection, see [TLS sockets](#tls-sockets---tls_sockets)
+- To extend the CNC server with a secure connection, see [TLS sockets](#tls-sockets---tls_sockets)
 
 ## Ransomware - ransomware
 **ransomware.py**
@@ -34,7 +34,7 @@ Demonstration of security-related scripts with an educational purpose using Pyth
 **tls_client.py**
 - The client socket that establishes a secure connection to the server and sends the message from the input
 
-**tls_server.py**
+**tls_server.c**
 - The server socket that accepts a secure connection and receives the message from the client
 
 ## Rootkit - rootkit
