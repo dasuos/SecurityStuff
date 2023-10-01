@@ -1,5 +1,5 @@
 # SecurityStuff
-Demonstration of security-related scripts with an educational purpose using Python and C
+Demonstration of security-related scripts using Python and C
 
 ## ARP spoofing - arp_spoofing
 **arp_spoofing_attack.py**
