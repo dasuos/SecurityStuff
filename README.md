@@ -1,5 +1,5 @@
 # SecurityStuff
-Demonstration of security-related scripts using Python and C
+Demonstration of security-related scripts with an educational purpose using Python and C
 
 ## ARP spoofing - arp_spoofing
 **arp_spoofing_attack.py**
@@ -19,7 +19,7 @@ Demonstration of security-related scripts using Python and C
 
 ## Ransomware - ransomware
 **ransomware.py**
-- Demonstration of ransomware recursively iterating through a directory encrypting all files with a symmetric key, which is after encrypted with a public key
+- Ransomware recursively iterating through a directory encrypting all files with a symmetric key, which is after encrypted with a public key
 - For generating RSA private and public key, use for example: <code>openssl genrsa -out rsa_private.key 4096</code> and <code>openssl rsa -in rsa_pair.key -pubout -out rsa_public.key</code>
 - Use at your own risk
 
@@ -27,7 +27,7 @@ Demonstration of security-related scripts using Python and C
 - The decryption of symmetric key with private key, which is after that used to recursively decrypt all files in a directory
 
 ## TLS sockets - tls_sockets
-- Demonstration of TLS sockets using elliptic-curve Diffie-Hellman key exchange
+- TLS sockets using elliptic-curve Diffie-Hellman key exchange
 - Generate the server's private key and certificate by running: <code>openssl req -new -newkey rsa:3072 -days 365 -nodes -x509 -keyout server.key -out server.crt</code>
 - Generate the client’s private key and certificate by running: <code>openssl req -new -newkey rsa:3072 -days 365 -nodes -x509 -keyout client.key -out client.crt</code>
 
@@ -37,9 +37,7 @@ Demonstration of security-related scripts using Python and C
 **tls_server.py**
 - The server socket that accepts a secure connection and receives the message from the client
 
-## E-mail - email
-**smtp_email.py**
-- Sending an email over an unencrypted channel using SMTP
-
-**smtps_email.py**
-- Sending an email over an encrypted channel using SMTPS
+## Rootkit - rootkit
+**rootkit.py**
+- Rootkit blocking reboot system call by disabling write protect flag (cr0 register) and overwriting function pointer in the system call table
+- By using a virtual machine, compile the kernel module by running <code>make</code> and <code>sudo insmod rootkit.ko</code>, then reboot to verify that the kernel has not shut down and try to ping the machine
