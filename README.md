@@ -39,5 +39,5 @@ Demonstration of security-related scripts using Python and C
 **tls_client.py**
 - The client socket that establishes a secure connection to the server and sends the message from the input
 
-**tls_server.c**
+**tls_server.py**
 - The server socket that accepts a secure connection and receives the message from the client
