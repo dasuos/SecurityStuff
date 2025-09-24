@@ -9,20 +9,22 @@
 Demonstration of security research and educational proofs-of-concept in Python and C
 
 ## ARP spoofing - arp_spoofing
-**arp_spoofing_attack.py**
-- Example of ARP spoofing attack (for installing Scapy, use <code>pip3 install --pre scapy[basic]</code>)
+**DO NOT RUN** on production networks or public infrastructure. Run **only** in an isolated disposable VM or a completely controlled lab network (host-only / virtual network) and with explicit consent from all participants.
 
+**arp_spoofing_attack.py**
+- Educational demo of ARP spoofing attack (for installing Scapy, use <code>pip3 install --pre scapy[basic]</code>)
 **arp_spoofing_detection.py**
 - Script demonstrating ARP spoofing detection by mapping MAC and IP addresses (for installing Scapy, use <code>pip3 install --pre scapy[basic]</code>)
 
 ## Ransomware - ransomware
+**DO NOT RUN** on production or persistent hosts. Run only in an isolated disposable VM snapshot only for research/educational purposes
+
 **ransomware.py**
-- Ransomware recursively iterating through a directory encrypting all files with a symmetric key, which is after encrypted with a public key
+- Educational demo that recursively iterates through a directory, encrypting all files with a symmetric key, which is then encrypted with a public key
 - For generating RSA private and public key, use for example: <code>openssl genrsa -out rsa_private.key 4096</code> and <code>openssl rsa -in rsa_pair.key -pubout -out rsa_public.key</code>
-- Use at your own risk
 
 **decryption.py**
-- The decryption of symmetric key with private key, which is after that used to recursively decrypt all files in a directory
+- The decryption of the symmetric key with the private key, which is used to decrypt all files in a directory recursively
 
 ## Reverse shell - reverse_shell
 **reverse_shell.py**
@@ -34,9 +36,11 @@ Demonstration of security research and educational proofs-of-concept in Python a
 - To extend the CNC server with a secure connection, see [TLS sockets](#tls-sockets---tls_sockets)
 
 ## Rootkit - rootkit
+**DO NOT RUN** on production or persistent hosts. Run only in an isolated disposable VM snapshot only for research/educational purposes
+
 **rootkit.c**
-- Simple demonstrative rootkit blocking reboot system call by disabling write protect flag (cr0 register) and overwriting function pointer in the system call table
-- By using a virtual machine, compile the kernel module by running <code>make</code> and <code>sudo insmod rootkit.ko</code>, then reboot to verify that the kernel has not shut down and try to ping the machine
+- Educational demo of simple rootkit blocking reboot system call by disabling write protect flag (cr0 register) and overwriting function pointer in the system call table
+- By using a virtual machine, compile the kernel module by running <code>make</code> and <code>sudo insmod rootkit.ko</code>, then reboot to verify that the kernel has not shut down, and try to ping the machine
 
 ## TLS sockets - tls_sockets
 - TLS sockets using elliptic-curve Diffie-Hellman key exchange
