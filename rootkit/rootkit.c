@@ -1,3 +1,9 @@
+/*********************************************************
+ * WARNING: Educational / research code only.
+ * DO NOT RUN on production systems or public networks.
+ * Run only in isolated VMs / snapshots and offline environments.
+ *********************************************************/
+
 #include <linux/module.h>
 #include <linux/init.h>
 #include <linux/kernel.h>
