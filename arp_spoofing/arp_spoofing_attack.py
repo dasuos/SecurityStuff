@@ -1,3 +1,9 @@
+# =======================================================
+# WARNING: Educational / research code only.
+# DO NOT RUN this script on production networks or public infrastructure.
+# Run only in isolated disposable VMs, host-only virtual networks, or fully controlled lab environments.
+# =======================================================
+
 from scapy.all import send, ARP, getmacbyip
 import sys
 import time
