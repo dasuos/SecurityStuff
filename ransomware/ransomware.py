@@ -1,6 +1,6 @@
 # =======================================================
 # WARNING: Educational / research code only.
-# **DO NOT RUN** on production or persistent hosts. 
+# DO NOT RUN on production or persistent hosts. 
 # Run only in an isolated disposable VM snapshot only for research/educational purposes.
 # =======================================================
 
