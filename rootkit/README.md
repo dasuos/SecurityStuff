@@ -1,5 +1,5 @@
 ## Rootkit - rootkit
-## Rootkit - rootkit
+
 **rootkit.c**
 - **DO NOT RUN** on production or persistent hosts. Run **only** in an isolated disposable VM snapshot only for research/educational purposes.
 - Educational demo of simple rootkit blocking reboot system call by disabling write protect flag (cr0 register) and overwriting function pointer in the system call table
