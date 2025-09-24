@@ -1,3 +1,9 @@
+# =======================================================
+# WARNING: Educational / research code only.
+# **DO NOT RUN** on production or persistent hosts. 
+# Run only in an isolated disposable VM snapshot only for research/educational purposes.
+# =======================================================
+
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding
