@@ -1,9 +1,6 @@
-> ⚠️ **Educational use only / Pouze pro vzdělávací účely**  
+> **Educational use only**
 >  
 > This repository contains experimental and demonstrative code intended **only** for research and educational purposes. The code is **not** intended for malicious use or production deployment. Use at your own risk. The author assumes no responsibility for misuse.  
->  
-> Tento repozitář obsahuje experimentální a demonstrativní kód určený **výhradně** pro výzkum a vzdělávání. Kód **není** určen k útokům ani k nasazení do produkce. Použití na vlastní riziko. Autor nenese odpovědnost za zneužití.
->
 
 # SecurityStuff
 Demonstration of security research and educational proofs-of-concept in Python and C
